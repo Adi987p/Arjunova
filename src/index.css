@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 246 247 249;           /* Parchment */
+  --bg-elevated: 255 255 255;
+  --ink: 27 33 48;              /* Ink Slate */
+  --mist: 107 118 136;
+  --nova: 232 163 61;           /* Nova Amber */
+  --nova-dim: 196 140 50;
+  --arjuna: 27 122 114;         /* Arjuna Teal */
+  --border: 27 33 48;
+}
+
+html[data-theme='dark'] {
+  --bg: 11 15 30;               /* Void Indigo */
+  --bg-elevated: 18 24 52;
+  --ink: 241 243 247;
+  --mist: 169 180 196;          /* Mist */
+  --nova: 232 163 61;
+  --nova-dim: 232 163 61;
+  --arjuna: 45 158 148;
+  --border: 255 255 255;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-family: 'Satoshi', system-ui, sans-serif;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgb(var(--nova) / 0.35);
+  color: rgb(var(--ink));
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--nova));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Glass panel utility */
+.glass {
+  background: rgb(var(--bg-elevated) / 0.6);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgb(var(--border) / 0.1);
+}
+
+.text-gradient-nova {
+  background: linear-gradient(100deg, rgb(var(--nova)) 0%, rgb(var(--nova-dim)) 60%, rgb(var(--arjuna)) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.container-page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Custom scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--mist) / 0.4);
+  border-radius: 6px;
+}
