@@ -100,7 +100,7 @@ export const courses = [
       'Past-paper walkthroughs by exam board and syllabus code',
     ],
     faculty: ['IB & Cambridge Mathematics Lead'],
-    price: 'From $20/hr',
+    price: 'From $10/hr',
   },
   {
     slug: 'coding-ai',
@@ -119,7 +119,7 @@ export const courses = [
       'Capstone: build and deploy a personal project',
     ],
     faculty: ['IB & Cambridge Mathematics Lead'],
-    price: '$15/hr',
+    price: '$12/hr',
   },
   {
     slug: 'spoken-english',
